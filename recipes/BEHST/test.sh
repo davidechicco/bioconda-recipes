@@ -7,4 +7,4 @@ set -o xtrace
 
 cd $PREFIX/bin
 
-./project.sh --test
+./project.sh --test -1 -1 -1 -1 -1
