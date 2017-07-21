@@ -1,16 +1,16 @@
 package:
   name: behst
-  version: 0.4
+  version: 0.7
 
 source:
-  fn: a2a25d973909.zip
-  url: https://bitbucket.org/hoffmanlab/behst/get/a2a25d973909.zip
-  sha256: cf4cc7179e6311f72d350c4fd408930b367b568f4ca77469474c4e5044ffd015
+  fn: 3b1d38405007.zip
+  url: https://bitbucket.org/hoffmanlab/behst/get/3b1d38405007.zip
+  sha256: 67d554adbb765ec53cb557e4ed9fbe8b6fc1dff133352e2c64f3a3c85797fe7a
 
 build:
   number: 0
   skip: True # [not py27 or osx]
-  
+
 requirements:
   build:
     - python
@@ -28,10 +28,10 @@ requirements:
     - r-base
     - curl
     - r-gprofiler
-    
+
 test:
   files:
-    - test.sh
+    - run_test.sh
 
 about:
   home: https://bitbucket.org/hoffmanlab/behst

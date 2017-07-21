@@ -9,4 +9,4 @@ mkdir -p $PREFIX/bin
 cp $SRC_DIR/bin/* $PREFIX/bin
 cd $PREFIX/bin
 
-./download_behst_data.sh
+./download_behst_data.sh ~/thisBEHSTdataFolder
