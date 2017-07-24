@@ -1,40 +1,39 @@
+{% set version = "0.6" %}
+
 package:
   name: behst
-  version: 0.7
+  version: {{ version }}
 
 source:
-  fn: 3b1d38405007.zip
-  url: https://bitbucket.org/hoffmanlab/behst/get/3b1d38405007.zip
-  sha256: 67d554adbb765ec53cb557e4ed9fbe8b6fc1dff133352e2c64f3a3c85797fe7a
+  fn: behst-{{ version }}.tar.gz
+  url: https://bitbucket.org/hoffmanlab/behst/get/tip.tar.bz2
 
 build:
   number: 0
-  skip: True # [not py27 or osx]
+  skip: True # [not py27]
 
 requirements:
   build:
     - python
-    - pandas
-    - zlib
-    - libpng
-    - gnu-wget
   run:
     - python
     - pandas
-    - zlib
-    - libpng
     - bedtools
     - pybedtools
     - r-base
-    - curl
+    - r-rcurl
     - r-gprofiler
+    - gnu-wget
 
 test:
-  files:
-    - run_test.sh
+    commands:
+      - behst.py -h
 
 about:
-  home: https://bitbucket.org/hoffmanlab/behst
-  license: BSD
-  license_file: LICENSE.txt
-  summary: BEHST package
+  home: https://bitbucket.org/hoffmanlab/behst/overview
+  license: GPLv2
+  summary: "BEHST reads an input dataset of chromosome regions, and intersects them with the chromatin interactions available in the Hi-C dataset. Of these chromosome regions, BEHST selects those that are presentthe regulatory regions of genes of APPRIS, a dataset of principal isoform annotations. We defined these cis-regulatory regions upon the position of their nearest transcription start site of the APPRIS genes' principal transcripts (obtained through GENCODE), plus an upstream and downstream extension. Afterwards, BEHST takes the genes of the resulting partner loci found in gene regulatory regions, and performs a gene set enrichment analysis on them through g:Profiler. BEHST, finally, outputs the list of the most significant Gene Ontology terms detected by g:Profiler."
+
+extra:
+  skip-lints:
+    - missing_hash
